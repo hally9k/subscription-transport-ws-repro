@@ -1,5 +1,5 @@
 # subscription-transport-ws-repro
-This repo is intended to reproduce the accumulation of websocket instances for every reconnection perfromed buy the `apollo/subscriptions-transport-ws` package.
+This repo is intended to reproduce the accumulation of websocket instances for every reconnection performed by the `apollo/subscriptions-transport-ws` package.
 
 To reproduce:
 Start the server: 
@@ -8,7 +8,7 @@ Start the server:
 Start the client:
 - Open a second terminal window and type: `cd client; yarn install && yarn start`
 
-View the ws connections:
+View the WS connections:
 - Open Chrome DevTools, open the network tab, filter to WS only observe the `subscriptions` WS connection.
 
 Kill the server:
@@ -21,7 +21,7 @@ Observe that there are now 2 live websocket connections in the Network tab.
 
 Rinse and repeat and observe the number of live WS connections grow.
 
-These are not receiving messages but don't appear to be terminated either.
+These are not receiving messages but don't appear to be properly terminated either.
 
 Are these WS not getting GC'd?
 Are these WS taking up resource?
